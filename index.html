@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ridgeline Technology Solutions LLC</title>
+  <meta name="description" content="Senior Java and DevOps engineering for enterprises. Contract engagements, C2C available. Kubernetes, OpenShift, Spring Boot, CI/CD.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    :root {
+      --navy: #0D1F2D;
+      --navy-mid: #152D40;
+      --blue: #2563EB;
+      --blue-hover: #1D4ED8;
+      --white: #FFFFFF;
+      --off-white: #F8FAFC;
+      --text: #0F172A;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+    }
+ 
+    html { scroll-behavior: smooth; }
+ 
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      color: var(--text);
+      background: var(--off-white);
+      -webkit-font-smoothing: antialiased;
+    }
+ 
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      transition: background 0.3s ease;
+    }
+ 
+    nav.scrolled { background: var(--navy); }
+ 
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+ 
+    .nav-cta {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--white);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 0.5rem 1.25rem;
+      border-radius: 4px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+ 
+    .nav-cta:hover {
+      border-color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.08);
+    }
+ 
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 8rem 2.5rem 5rem;
+    }
+ 
+    .hero-topo {
+      position: absolute;
+      top: 0; right: 0;
+      width: 60%;
+      height: 100%;
+      pointer-events: none;
+    }
+ 
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+    }
+ 
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+ 
+    .hero-headline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 3.75rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.5rem;
+    }
+ 
+    .hero-headline em {
+      font-style: normal;
+      color: #60A5FA;
+    }
+ 
+    .hero-sub {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+    }
+ 
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 0.875rem 1.75rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+ 
+    .hero-cta:hover { background: var(--blue-hover); }
+ 
+    .cta-arrow { transition: transform 0.2s; }
+    .hero-cta:hover .cta-arrow { transform: translateX(3px); }
+ 
+    .tech-strip {
+      background: var(--navy-mid);
+      padding: 1.1rem 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.75rem;
+      align-items: center;
+    }
+ 
+    .tech-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+ 
+    .tech-item {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+    }
+ 
+    .section { padding: 5rem 2.5rem; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+ 
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+ 
+    .eyebrow-line {
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+ 
+    .eyebrow-text {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+ 
+    .section-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 3rem;
+    }
+ 
+    .services { background: var(--off-white); }
+ 
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+ 
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2rem 1.75rem;
+      transition: border-color 0.2s;
+    }
+ 
+    .service-card:hover { border-color: #CBD5E1; }
+ 
+    .service-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+ 
+    .service-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+ 
+    .service-desc {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+ 
+    .about { background: var(--white); }
+ 
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+ 
+    .about-body {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #334155;
+    }
+ 
+    .about-body p + p { margin-top: 1rem; }
+ 
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 1.5rem;
+    }
+ 
+    .stat-block {
+      border-left: 2px solid var(--blue);
+      padding-left: 1rem;
+    }
+ 
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+ 
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+ 
+    .contact-section {
+      background: var(--navy);
+      padding: 5rem 2.5rem;
+    }
+ 
+    .contact-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+ 
+    .contact-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+ 
+    .contact-sub {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.5);
+    }
+ 
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+ 
+    .contact-item-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      margin-bottom: 0.2rem;
+    }
+ 
+    .contact-item-value {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      display: block;
+      transition: color 0.2s;
+    }
+ 
+    a.contact-item-value:hover { color: #60A5FA; }
+ 
+    footer {
+      background: #09161F;
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+ 
+    .footer-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.3);
+    }
+ 
+    .footer-legal {
+      font-size: 0.73rem;
+      color: rgba(255,255,255,0.18);
+    }
+ 
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .hero { padding: 7rem 1.25rem 4rem; }
+      .tech-strip { padding: 1rem 1.25rem; }
+      .section { padding: 3.5rem 1.25rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-section { padding: 3.5rem 1.25rem; }
+      .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      footer { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+ 
+<nav id="nav">
+  <a href="#" class="nav-logo">Ridgeline Technology Solutions</a>
+  <a href="#contact" class="nav-cta">Get in touch</a>
+</nav>
+ 
+<section class="hero">
+  <svg class="hero-topo" viewBox="0 0 600 800" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+    <g stroke="rgba(255,255,255,0.055)" stroke-width="1" fill="none">
+      <ellipse cx="480" cy="380" rx="60" ry="35"/>
+      <ellipse cx="480" cy="380" rx="115" ry="68"/>
+      <ellipse cx="480" cy="380" rx="175" ry="105"/>
+      <ellipse cx="480" cy="380" rx="240" ry="145"/>
+      <ellipse cx="480" cy="380" rx="310" ry="188"/>
+      <ellipse cx="480" cy="380" rx="385" ry="233"/>
+      <ellipse cx="480" cy="380" rx="465" ry="282"/>
+      <ellipse cx="480" cy="380" rx="550" ry="334"/>
+      <ellipse cx="280" cy="130" rx="42" ry="26"/>
+      <ellipse cx="280" cy="130" rx="88" ry="54"/>
+      <ellipse cx="280" cy="130" rx="140" ry="85"/>
+      <ellipse cx="280" cy="130" rx="198" ry="120"/>
+    </g>
+  </svg>
+ 
+  <div class="hero-content">
+    <p class="hero-eyebrow">Ridgeline Technology Solutions LLC &nbsp;·&nbsp; Bowling Green, KY</p>
+    <h1 class="hero-headline">Senior Java &amp; DevOps<br>engineering for enterprises<br>that <em>can't afford downtime.</em></h1>
+    <p class="hero-sub">Hands-on contract engineering for teams that need reliable backend systems and automated deployment infrastructure. C2C available.</p>
+    <a href="#contact" class="hero-cta">Start a conversation <span class="cta-arrow">→</span></a>
+  </div>
+</section>
+ 
+<div class="tech-strip">
+  <span class="tech-label">Core stack</span>
+  <span class="tech-item">Java 21</span>
+  <span class="tech-item">Spring Boot</span>
+  <span class="tech-item">Kubernetes</span>
+  <span class="tech-item">Red Hat OpenShift</span>
+  <span class="tech-item">Jenkins / CloudBees</span>
+  <span class="tech-item">Docker</span>
+  <span class="tech-item">GitHub Actions</span>
+  <span class="tech-item">JFrog Artifactory</span>
+  <span class="tech-item">JMS</span>
+  <span class="tech-item">PostgreSQL</span>
+</div>
+ 
+<section class="section services" id="services">
+  <div class="section-inner">
+    <div class="eyebrow">
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-text">What Ridgeline delivers</span>
+    </div>
+    <h2 class="section-heading">Core capabilities</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <p class="service-num">01</p>
+        <h3 class="service-title">Backend Engineering</h3>
+        <p class="service-desc">Java and Spring Boot development for distributed systems, high-throughput APIs, and message-driven architectures built to last and easy to maintain.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">02</p>
+        <h3 class="service-title">DevOps &amp; CI/CD Automation</h3>
+        <p class="service-desc">Pipeline design and implementation using Jenkins, CloudBees, and GitHub Actions — eliminating manual deployment steps and reducing cycle time.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">03</p>
+        <h3 class="service-title">Container &amp; Platform Engineering</h3>
+        <p class="service-desc">Production workload deployment and management on Kubernetes and Red Hat OpenShift, including cluster configuration and automated pipeline validation.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">04</p>
+        <h3 class="service-title">Legacy Modernization</h3>
+        <p class="service-desc">Java 8 to Java 21 and Spring Boot 3.x migration paths that preserve business logic while modernizing build configurations and dependency management.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section class="section about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <div class="eyebrow">
+          <span class="eyebrow-line"></span>
+          <span class="eyebrow-text">About the practice</span>
+        </div>
+        <div class="about-body">
+          <p>Ridgeline Technology Solutions LLC is an independent technical consultancy organized in Bowling Green, Kentucky. Principal Consultant William Kyle Brooks brings 4+ years of enterprise consulting experience from engagements at GE Aerospace and FedEx, delivering hands-on backend and platform engineering for teams where reliability is non-negotiable.</p>
+          <p>The practice focuses on contract engagements where an experienced engineer needs to embed with a team — not manage a vendor relationship. C2C preferred.</p>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="stat-block">
+          <p class="stat-number">4+</p>
+          <p class="stat-label">Years enterprise consulting experience</p>
+        </div>
+        <div class="stat-block">
+          <p class="stat-number">30+</p>
+          <p class="stat-label">Services migrated to OpenShift at GE Aerospace</p>
+        </div>
+        <div class="stat-block">
+          <p class="stat-number">0</p>
+          <p class="stat-label">Production downtime during platform carve-out</p>
+        </div>
+        <div class="stat-block">
+          <p class="stat-number">6</p>
+          <p class="stat-label">Engineers led at FedEx over 1.5 years</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div>
+      <h2 class="contact-heading">Ready to engage?</h2>
+      <p class="contact-sub">Whether you need an embedded engineer to accelerate a critical roadmap or hands-on help with a deployment pipeline, let's talk about what you're trying to ship.</p>
+    </div>
+    <div class="contact-items">
+      <div>
+        <p class="contact-item-label">Email</p>
+        <a href="mailto:kyle@ridgelinetechsolutions.com" class="contact-item-value">kyle@ridgelinetechsolutions.com</a>
+      </div>
+      <div>
+        <p class="contact-item-label">LinkedIn</p>
+        <a href="https://www.linkedin.com/in/william-brooks-a926b018/" target="_blank" rel="noopener" class="contact-item-value">linkedin.com/in/william-brooks-a926b018</a>
+      </div>
+      <div>
+        <p class="contact-item-label">Location</p>
+        <span class="contact-item-value">Bowling Green, KY &nbsp;·&nbsp; Remote available</span>
+      </div>
+      <div>
+        <p class="contact-item-label">Engagement type</p>
+        <span class="contact-item-value">Contract &nbsp;·&nbsp; C2C preferred</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<footer>
+  <span class="footer-name">Ridgeline Technology Solutions LLC</span>
+  <span class="footer-legal">© 2026 · Bowling Green, Kentucky · All rights reserved</span>
+</footer>
+ 
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+</script>
+ 
+</body>
+</html>
